@@ -179,8 +179,7 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 
 * What's the difference between a variable that is: `null`, `undefined` or `undeclared`?
   * How would you go about checking for any of these states?
-* What is a closure, and how/why would you use one?
-* What's a typical use case for anonymous functions?
+
 * How do you organize your code? (module pattern, classical inheritance?)
 > Usually write it as an object literal with different modules
 
@@ -197,9 +196,15 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 
 * What's the difference between feature detection, feature inference, and using the UA string?
 * Explain AJAX in as much detail as possible.
+> stands for Asynchronous JavaScript and XML. Enables the transfer of data asynchronously from the server via the XMLHttpRequest Object in JavaScript. I know this is part of the question but I really don't want to go into detail so I'm just gonna stop. There.
+
 * Explain how JSONP works (and how it's not really AJAX).
+> I can't really
+
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used?
+  > I experimented with Angular and Meteor
+
 * Explain "hoisting".
 > No idea what that is. sounds like something a pirate would do.
 
@@ -226,7 +231,11 @@ function duplicate(a){
 ```
 
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
+> I don't know this word.
+
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
+> "use strict" sets the JS parser to execute in "strict mode". This is good practice because it then throws errors for some of the weird JS quirks that would otherwise have unexpected results.
+
 * Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, `"buzz"` at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
 ```javascript
 for(var i = 1;i <= 100; i++){
