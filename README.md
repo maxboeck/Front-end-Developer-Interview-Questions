@@ -6,7 +6,6 @@ This file contains a number of front-end interview questions that can be used wh
 
 ## Table of Contents
 
-  1. [General Questions](#general-questions)
   1. [HTML Questions](#html-questions)
   1. [CSS Questions](#css-questions)
   1. [JS Questions](#js-questions)
@@ -14,69 +13,97 @@ This file contains a number of front-end interview questions that can be used wh
   1. [Coding Questions](#coding-questions)
   1. [Fun Questions](#fun-questions)
 
-## Getting Involved
-
-  1. [Contributors](#contributors)
-  1. [How to Contribute](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/CONTRIBUTING.md)
-  1. [License](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/LICENSE.md)
-
-#### General Questions:
-
-* What did you learn yesterday/this week?
-* What excites or interests you about coding?
-* What is a recent technical challenge you experienced and how did you solve it?
-* What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a web application or site?
-* Talk about your preferred development environment.
-* Which version control systems are you familiar with?
-* Can you describe your workflow when you create a web page?
-* If you have 5 different stylesheets, how would you best integrate them into the site?
-* Can you describe the difference between progressive enhancement and graceful degradation?
-* How would you optimize a website's assets/resources?
-* How many resources will a browser download from a given domain at a time?
-  * What are the exceptions?
-* Name 3 ways to decrease page load (perceived or actual load time).
-* If you jumped on a project and they used tabs and you used spaces, what would you do?
-* Describe how you would create a simple slideshow page.
-* What tools do you use to test your code's performance?
-* If you could master one technology this year, what would it be?
-* Explain the importance of standards and standards bodies.
-* What is Flash of Unstyled Content? How do you avoid FOUC?
-* Explain what ARIA and screenreaders are, and how to make a website accessible.
-* Explain some of the pros and cons for CSS animations versus JavaScript animations.
 
 #### HTML Questions:
 
 * What does a `doctype` do?
+> It sets the namespace and standard syntax rules for the browser to render a document. I think most browsers would still render a page without a doctype, but not in a consistent matter.
+
 * What's the difference between standards mode and quirks mode?
+> One follows a unified standard set by the W3C, the other relies on how different browsers interpret the markup.
+
+
 * What's the difference between HTML and XHTML?
+> XHTML is based on XML, can be "strict" or "transitional".
+
 * Are there any problems with serving pages as `application/xhtml+xml`?
+> Possible namespace collision? Don't know honestly.
+
 * How do you serve a page with content in multiple languages?
 * What kind of things must you be wary of when design or developing for multilingual sites?
 * What are `data-` attributes good for?
+> Storing arbitrary data on HTML elements without affecting the semantics (too much).
+
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 * Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+> 1: Script blocks rendering, 2: Script loads asnychronously, 3: Script loads after DOM is parsed.
+
 * Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+> Performance reasons. You want the CSS to be available as soon as possible to correctly display the site, but scripts in the head would block rendering while they're being loaded. One exception would be a feature testing lib like 'Modernizr'.
+
 * What is progressive rendering?
 
 #### CSS Questions:
 
 * What is the difference between classes and ID's in CSS?
+> IDs must be unique and take higher priority in the cascade. Only Classes should be used for styling.
+
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+> Resetting overwrites the default browser behaviour (and usually sets everything to `none` or `0` ), while normalizing kind of 'evens it out' across browsers to make sure they all apply the same sensible defaults. I prefer normalizing.
+
 * Describe Floats and how they work.
+> Floats take an element out of the regular document flow and move it `left` or `right`.
+
 * Describe z-index and how stacking context is formed.
+> `z-index` sets the order of elements along the z-axis (from the screen outward), and defines which elements are displayed on top. Only applies to positioned elements. Context is inherited from the parent, so an element inside a parent with `z-index` can only be positioned within that context.
+
 * What are the various clearing techniques and which is appropriate for what context?
+> That depends. you could use a separate element with a clearfix class, or use pseudo-elements like in the micro-clearfix technique with `display:table`
+
 * Explain CSS sprites, and how you would implement them on a page or site.
+
+
 * What are your favourite image replacement techniques and which do you use when?
+> I try to avoid that alltogether, but if I had to, I'd use something like this to keep the element's content accessible:
+<pre><code>text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;</code></pre>
+
 * How would you approach fixing browser-specific styling issues?
+> I'd rather like to rely on feature detection and pin styles on a Modernizr class, i.e. `no-rgba` or something. Or use conditional comments on the `html` tag for older IE versions.
+
 * How do you serve your pages for feature-constrained browsers?
   * What techniques/processes do you use?
+
+
 * What are the different ways to visually hide content (and make it available only for screen readers)?
+> position it off the screen, clip and hide it:
+<pre><code>clip: rect(1px, 1px, 1px, 1px);
+position: absolute !important;
+height: 1px;
+width: 1px;
+overflow: hidden;</code></pre>
+
 * Have you ever used a grid system, and if so, what do you prefer?
+> I have tried different systems, like the bootstrap grid, susy, simple grids... I don't like it when the markup gets flooded with boilerplate classes end you end up with elements like `<div class="col-sm-12 col-md-6 col-lg-4">` so I prefer an approach where I use SCSS mixins to style them directly.
+
 * Have you used or implemented media queries or mobile specific layouts/CSS?
+> Yes, I hardly ever build anything that's not responsive anymore. (And I don't think anyone should)
+
 * Any familiarity with styling SVG?
+> Just recently adopted a workflow for SVG Icons from an external spritemap, using `<use xlink>`, a grunt task called 'svgstore' and the 'svg4everybody' polyfill. Styling SVG in this case comes down to defining icon sizes and using CSS `currentColor` for the fill.
+
 * How do you optimize your webpages for print?
+> Print media queries, pretty much hiding anything but the essential content, disabling background images and other 'ink-intensive' stuff, setting body type color to #000, defining a few basic `page-break-after` rules, and so on.
+
 * What are some of the "gotchas" for writing efficient CSS?
+> * Normalize
+> * Honoring the cascade
+> * Avoiding deep nested selectors (max 3 levels)
+> * Good Naming conventions (BEM, SMACSS, etc)
+
+
 * What are the advantages/disadvantages of using CSS preprocessors?
   * Describe what you like and dislike about the CSS preprocessors you have used.
 * How would you implement a web design comp that uses non-standard fonts?
@@ -148,7 +175,7 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
   * Transfer-Encoding
   * ETag
   * X-Frame-Options
-* What are HTTP actions? List all HTTP actions that you know, and explain them. 
+* What are HTTP actions? List all HTTP actions that you know, and explain them.
 
 #### Coding Questions:
 
