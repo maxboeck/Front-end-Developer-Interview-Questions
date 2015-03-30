@@ -76,11 +76,12 @@ Some answers might be incorrect, not precise enough or just plain stupid - so do
 
 * What are your favourite image replacement techniques and which do you use when?
 > I try to avoid that alltogether, but if I had to, I'd use something like this to keep the element's content accessible:
->```css
+```css
 text-indent: 100%;
 white-space: nowrap;
 overflow: hidden;
 ```
+
 
 * How would you approach fixing browser-specific styling issues?
 > I'd rather like to rely on feature detection and pin styles on a Modernizr class, i.e. `no-rgba` or something. Or use conditional comments on the `html` tag for older IE versions.
@@ -91,7 +92,7 @@ overflow: hidden;
 
 * What are the different ways to visually hide content (and make it available only for screen readers)?
 > position it off the screen, clip and hide it:
->```css
+```css
 clip: rect(1px, 1px, 1px, 1px);
 position: absolute !important;
 height: 1px;
