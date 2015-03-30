@@ -12,7 +12,6 @@ Some answers might be incorrect, not precise enough or just plain stupid - so do
   1. [HTML Questions](#html-questions)
   1. [CSS Questions](#css-questions)
   1. [JS Questions](#js-questions)
-  1. [Network Questions](#network-questions)
   1. [Coding Questions](#coding-questions)
   1. [Fun Questions](#fun-questions)
 
@@ -239,19 +238,6 @@ for(var i = 1;i <= 100; i++){
 * Explain what a single page app is and how to make one SEO-friendly.
 * What is the extent of your experience with Promises and/or their polyfills?
 
-#### Network Questions:
-
-* Traditionally, why has it been better to serve site assets from multiple domains?
-* Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
-* What are the differences between Long-Polling, Websockets and Server-Sent Events?
-* Explain the following request and response headers:
-  * Diff. between Expires, Date, Age and If-Modified-...
-  * Do Not Track
-  * Cache-Control
-  * Transfer-Encoding
-  * ETag
-  * X-Frame-Options
-* What are HTTP actions? List all HTTP actions that you know, and explain them.
 
 #### Coding Questions:
 
@@ -259,22 +245,31 @@ for(var i = 1;i <= 100; i++){
 ```javascript
 var foo = 10 + '20';
 ```
+> '1020'
 
 *Question: How would you make this work?*
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
 ```
+> honestly no clue about the second one. first one is easier:
+```javascript
+function add(a,b){
+  return a + b;
+}
+```
 
 *Question: What value is returned from the following statement?*
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
 ```
+> "goh angasal a m'i"
 
 *Question: What is the value of `window.foo`?*
 ```javascript
 ( window.foo || ( window.foo = "bar" ) );
 ```
+> "bar"
 
 *Question: What is the outcome of the two alerts below?*
 ```javascript
@@ -285,6 +280,7 @@ var foo = "Hello";
 })();
 alert(foo + bar);
 ```
+> "Hello World" and an Error since `bar` is out of scope there
 
 *Question: What is the value of `foo.length`?*
 ```javascript
@@ -292,18 +288,21 @@ var foo = [];
 foo.push(1);
 foo.push(2);
 ```
+> 2?
 
 #### Fun Questions:
 
 * What's a cool project that you've recently worked on?
+> Did a site for an awesome backpackers hostel in jakarta.
+
 * What are some things you like about the developer tools you use?
+> I love Sublime Text for its speed and Grunt for the millions of packages that make my job easier.
+
 * Do you have any pet projects? What kind?
+> I like to design gig posters for fun.
+
 * What's your favorite feature of Internet Explorer?
+> It will die. One pale morning, it will draw its last frame, and the news will sound from every mountaintop. The people will gather in silent admiration of the peace and serenity that will -for one divine moment- cover the earth, promising a brighter day tomorrow.
+
 * How do you like your coffee?
-
-
-#### Contributors:
-
-This document started in 2009 as a collaboration of [@paul_irish](https://twitter.com/paul_irish) [@bentruyman](https://twitter.com/bentruyman) [@cowboy](https://twitter.com/cowboy) [@ajpiano](https://twitter.com/ajpiano)  [@SlexAxton](https://twitter.com/slexaxton) [@boazsender](https://twitter.com/boazsender) [@miketaylr](https://twitter.com/miketaylr) [@vladikoff](https://twitter.com/vladikoff) [@gf3](https://twitter.com/gf3) [@jon_neal](https://twitter.com/jon_neal) [@sambreed](https://twitter.com/sambreed) and [@iansym](https://twitter.com/iansym).
-
-It has since received contributions from over [100 developers](https://github.com/h5bp/Front-end-Developer-Interview-Questions/graphs/contributors).
+> #000, thx.
