@@ -88,7 +88,8 @@ overflow: hidden;
 
 * How do you serve your pages for feature-constrained browsers?
   * What techniques/processes do you use?
-> Again, I like using feature detection (Modernizr) to leverage a progressive enhancement approach. When in doubt, build everything as if it was still 2005 and then layer new stuff on top.
+
+  > Again, I like using feature detection (Modernizr) to leverage a progressive enhancement approach. When in doubt, build everything as if it was still 2005 and then layer new stuff on top.
 
 * What are the different ways to visually hide content (and make it available only for screen readers)?
 > position it off the screen, clip and hide it:
@@ -123,6 +124,7 @@ overflow: hidden;
 > They're great for a myriad of reasons. One disadvantage might be that if you're not careful / you don't know what you're doing, the CSS can get bloated.
 
   * Describe what you like and dislike about the CSS preprocessors you have used.
+
 > I use Sass with Grunt and I love it. Variables, Mixins, Extends, Auto-Prefixing ... the list of awesome goes on. My favourite feature might be just the fact that I can organize my code in small partials and have a flexible but meaningful file structure.
 
 
