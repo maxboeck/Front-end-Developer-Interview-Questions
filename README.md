@@ -75,24 +75,22 @@ Some answers might be incorrect, not precise enough or just plain stupid - so do
 
 * What are your favourite image replacement techniques and which do you use when?
 > I try to avoid that alltogether, but if I had to, I'd use something like this to keep the element's content accessible:
-```css
+```
 text-indent: 100%;
 white-space: nowrap;
 overflow: hidden;
 ```
-
 
 * How would you approach fixing browser-specific styling issues?
 > I'd rather like to rely on feature detection and pin styles on a Modernizr class, i.e. `no-rgba` or something. Or use conditional comments on the `html` tag for older IE versions.
 
 * How do you serve your pages for feature-constrained browsers?
   * What techniques/processes do you use?
-
   > Again, I like using feature detection (Modernizr) to leverage a progressive enhancement approach. When in doubt, build everything as if it was still 2005 and then layer new stuff on top.
 
 * What are the different ways to visually hide content (and make it available only for screen readers)?
 > position it off the screen, clip and hide it:
-```css
+```
 clip: rect(1px, 1px, 1px, 1px);
 position: absolute !important;
 height: 1px;
@@ -110,7 +108,7 @@ overflow: hidden;
 > Just recently adopted a workflow for SVG Icons from an external spritemap, using `<use xlink>`, a grunt task called 'svgstore' and the 'svg4everybody' polyfill. Styling SVG in this case comes down to defining icon sizes and using CSS `currentColor` for the fill.
 
 * How do you optimize your webpages for print?
-> Print media queries, pretty much hiding anything but the essential content, disabling background images and other 'ink-intensive' stuff, setting body type color to #000, defining a few basic `page-break-after` rules, and so on.
+> Print media queries, pretty much hiding anything but the essential content, disabling background images and other 'ink-intensive' stuff, setting body type color to `#000`, defining a few basic `page-break-after` rules, and so on.
 
 * What are some of the "gotchas" for writing efficient CSS?
 > * Normalize
@@ -123,9 +121,7 @@ overflow: hidden;
 > They're great for a myriad of reasons. One disadvantage might be that if you're not careful / you don't know what you're doing, the CSS can get bloated.
 
   * Describe what you like and dislike about the CSS preprocessors you have used.
-
-> I use Sass with Grunt and I love it. Variables, Mixins, Extends, Auto-Prefixing ... the list of awesome goes on. My favourite feature might be just the fact that I can organize my code in small partials and have a flexible but meaningful file structure.
-
+  > I use Sass with Grunt and I love it. Variables, Mixins, Extends, Auto-Prefixing ... the list of awesome goes on. My favourite feature might be just the fact that I can organize my code in small partials and have a flexible but meaningful file structure.
 
 * How would you implement a web design comp that uses non-standard fonts?
 > This is very much open to discussion, Filament group have some excellent pointers on how to do this best. Be aware of FOUT / FOIT but I guess the default approach would be to serve them via `font-face` and provide sensible fallbacks in a font stack.
@@ -159,12 +155,20 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 #### JS Questions:
 
 * Explain event delegation
+> an event on a child element also fires on the parent due to bubbling, so it's possible to listen for events on the parent and then check for the original source.
+
 * Explain how `this` works in JavaScript
+> it depends on the context. `this` is usually the object that contains the function `this` is in.
+
 * Explain how prototypal inheritance works
+> any method that is part of an object, is also available in instances of objects that are based on it.
+
 * How do you go about testing your JavaScript?
 > I use JSHint for general Syntax errors, but I dont do TDD with Karma or something like that.
 
 * What do you think of AMD vs CommonJS?
+> Maybe I'm a bit behind here, but I never used either.
+
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
 > parser treats this a function declaration, with an unrelated () after. Throws Error
 
@@ -302,7 +306,7 @@ foo.push(2);
 > I like to design gig posters for fun.
 
 * What's your favorite feature of Internet Explorer?
-> It will die. One pale morning, it will draw its last frame, and the news will sound from every mountaintop. The people will gather in silent admiration of the peace and serenity that will -for one divine moment- cover the earth, promising a brighter day tomorrow.
+> It will die. One pale morning, it will draw its last frame, and the news will sound from every mountaintop. And the people will gather in silent admiration of the peace and serenity that will -for one divine moment- cover the earth, promising a brighter day tomorrow.
 
 * How do you like your coffee?
-> #000, thx.
+> `#000`, thx.
