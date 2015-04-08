@@ -144,13 +144,29 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 > * flex
 
 * What's the difference between inline and inline-block?
+> inline-block generally behaves like a block-level element, but does not force line breaks before or after
+
 * What's the difference between a relative, fixed, absolute and statically positioned element?
-* The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
+> * static: normal document flow
+> * relative: position element in offset to normal document flow
+> * absolute: position relative to parent element (or next higher element with positioning)
+> * fixed: position relative to browser viewport
+
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+> I use my own pattern library, just a loose collection of SCSS partials.
+> Not a big fan of full-blown frameworks, but I have occasionally used bootstrap.
+
 * Have you played around with the new CSS Flexbox or Grid specs?
+> I did try to build some flex layouts, but I can't really say I know much about it.
+
 * How is responsive design different from adaptive design?
+> Fully responsive design relies on percentage-based layouts and is completely fluid, in contrast to a few "fixed" layouts triggered at different breakpoints in adaptive design.
+
 * Have you ever worked with retina graphics? If so, when and what techniques did you use?
+> I always use SVG if it all possible, I used dpi media query and "@2x" images for a while, but it's a pain.
+
 * Is there any reason you'd want to use `translate()` instead of *absolute positioning*, or vice-versa? And why?
+> translate for animations/transitions, or in combination with percentages to position an element relative to *its own* size.
 
 #### JS Questions:
 
@@ -178,28 +194,42 @@ I usually build sites on `border-box`. It just makes way more sense to me.
   ```
 
 * What's the difference between a variable that is: `null`, `undefined` or `undeclared`?
+> * `null` is a value of *nothing*
+> * `undefined` is a value of a variable that has not (yet) been set, or is not visible in the current scope
+> * `undeclared` I'm not sure about...
+
   * How would you go about checking for any of these states?
+  > * x === null
+  > * typeof x === 'undefined'
+  > * ?
 
 * How do you organize your code? (module pattern, classical inheritance?)
 > Usually write it as an object literal with different modules
 
 * What's the difference between host objects and native objects?
+> Don't really know. Maybe host objects are anything not pre-baked into JS, like Array, Math etc.?
+
 * Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 > * class declaration
 > * return value of function assigned to variable
 > * new instance of a class  
 
 * What's the difference between `.call` and `.apply`?
-* Explain `Function.prototype.bind`.
+> I think `.call` takes multiple individual arguments, `.apply` only one (array)
+
 * When would you use `document.write()`?
 > Never? or maybe as fallback for a CDN jQuery, to write a local script if CDN is not available.
 
 * What's the difference between feature detection, feature inference, and using the UA string?
+> * Feature Detection runs a series of small tests to determine support,
+> * Feature inference (guessing by the name) assumes support because of related supported features
+> * the UA string is just plain evil. browser sniffing is not an option in 2015 anymore IMHO
+
 * Explain AJAX in as much detail as possible.
 > stands for Asynchronous JavaScript and XML. Enables the transfer of data asynchronously from the server via the XMLHttpRequest Object in JavaScript. I know this is part of the question but I really don't want to go into detail so I'm just gonna stop. There.
 
 * Explain how JSONP works (and how it's not really AJAX).
-> I can't really
+> I can't really, sorry
 
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used?
@@ -210,6 +240,8 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 
 * Describe event bubbling.
 * What's the difference between an "attribute" and a "property"?
+> attributes are written into the actual HTML tag, like `<div class="foo">` while properties are set on the DOM node, after it is parsed.
+
 * Why is extending built in JavaScript objects not a good idea?
 > because everything is an object in JavaScript. Due to inheritance your customizations would almost certainly end up somewhere they shouldn't.
 
@@ -220,6 +252,8 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 > `===` strict equals also compares type. generally preferred.
 
 * Explain the same-origin policy with regards to JavaScript.
+> I don't quite know what that is.
+
 * Make this work:
 ```javascript
 duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -247,9 +281,22 @@ for(var i = 1;i <= 100; i++){
 ```
 
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+> hmm- let's see..
+> * to avoid naming collisions with other scripts
+> * to keep "private" functions inaccessible from the console and variables only in the relevant scope
+> * to keep the code clean and readable
+
 * Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
+> I use load mostly for defering external JS (like analytics, the FB API etc) until after everything else is done.
+> For the ususal tasks, the DOM ready event is a better pick, because scripts get to run sooner.
+
 * Explain what a single page app is and how to make one SEO-friendly.
+> single page apps dont follow the traditional request - fetch html page pattern, but dynamically insert pages via JS.
+> history.pushState comes to mind to maintain back button and browser history support. But for SEO, things are complicated.
+> I think I read somewhere that it's possible to pre-fetch your own site, parse the content and serve that to crawlers.
+
 * What is the extent of your experience with Promises and/or their polyfills?
+> Don't have *any* experiences with promises. I know, I know. I'll get to it.
 
 
 #### Coding Questions:
