@@ -198,10 +198,10 @@ I usually build sites on `border-box`. It just makes way more sense to me.
 > * `undefined` is a value of a variable that has not (yet) been set, or is not visible in the current scope
 > * `undeclared` I'm not sure about...
 
-  * How would you go about checking for any of these states?
-  > * x === null
-  > * typeof x === 'undefined'
-  > * ?
+* How would you go about checking for any of these states?
+> * x === null
+> * typeof x === 'undefined'
+> * ?
 
 * How do you organize your code? (module pattern, classical inheritance?)
 > Usually write it as an object literal with different modules
