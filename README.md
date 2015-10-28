@@ -265,7 +265,13 @@ function duplicate(a){
 ```
 
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
-> I don't know this word.
+> indicates a conditional expression, where the outcome depends on the parameter used. Can be used as shorthand for if/else statements, like:
+
+```javascript
+return (myVar > 5) ? 'foo' : 'bar';
+// returns 'foo' when myVar greater than 5, else 'bar'.
+```
+
 
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
 > "use strict" sets the JS parser to execute in "strict mode". This is good practice because it then throws errors for some of the weird JS quirks that would otherwise have unexpected results.
@@ -296,7 +302,7 @@ for(var i = 1;i <= 100; i++){
 > I think I read somewhere that it's possible to pre-fetch your own site, parse the content and serve that to crawlers.
 
 * What is the extent of your experience with Promises and/or their polyfills?
-> Don't have *any* experiences with promises. I know, I know. I'll get to it.
+> Don't have much experience with promises. I used it recently in an Audio API but I'm not really confident with it yet. I know, I know. I'll get to it.
 
 
 #### Coding Questions:
