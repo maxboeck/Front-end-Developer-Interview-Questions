@@ -236,7 +236,18 @@ I usually build sites on `border-box`. It just makes way more sense to me.
   > I experimented with Angular and Meteor
 
 * Explain "hoisting".
-> No idea what that is. sounds like something a pirate would do.
+
+>A variable can be declared after it has been used.
+
+```
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x;                     // Display x in the element
+
+var x; // Declare x
+```
+
 
 * Describe event bubbling.
 * What's the difference between an "attribute" and a "property"?
