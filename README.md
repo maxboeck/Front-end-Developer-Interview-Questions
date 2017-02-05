@@ -250,6 +250,23 @@ var x; // Declare x
 
 
 * Describe event bubbling.
+
+> Event bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+> When you use event bubbling
+
+```
+               / \
+---------------| |-----------------
+| element1     | |                |
+|   -----------| |-----------     |
+|   |element2  | |          |     |
+|   -------------------------     |
+|        Event BUBBLING           |
+-----------------------------------
+```
+>the event handler of element2 fires first, the event handler of element1 fires last.
+
+
 * What's the difference between an "attribute" and a "property"?
 > attributes are written into the actual HTML tag, like `<div class="foo">` while properties are set on the DOM node, after it is parsed.
 
