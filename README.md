@@ -346,10 +346,18 @@ var foo = 10 + '20';
 add(2, 5); // 7
 add(2)(5); // 7
 ```
-> honestly no clue about the second one. first one is easier:
+> first one:
 ```javascript
 function add(a,b){
   return a + b;
+}
+```
+> the second one uses currying, lodash has a handy [curry](https://lodash.com/docs/4.17.4#curry) method to transform the first into the second one. To learn a bit more about currying, see this [video](https://www.youtube.com/watch?v=iZLP4qOwY8I), or read [this guide](http://blog.carbonfive.com/2015/01/14/gettin-freaky-functional-wcurried-javascript/).
+```javascript
+function add(a) {
+  return function (b) {
+    return a + b;
+  }
 }
 ```
 
